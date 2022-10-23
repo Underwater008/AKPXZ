@@ -19,7 +19,7 @@ namespace XiaoWordSystem
         void Start()
         {
             txt = this.GetComponent<Text>();
-
+            txt.DOColor(Color.clear, 0f);
         }
 
         public void ShowText()
@@ -29,7 +29,7 @@ namespace XiaoWordSystem
 
         public void HideText()
         {
-            txt.DOColor(Color.clear, 2f).OnComplete(() => 
+            txt.DOColor(Color.clear, 1f).OnComplete(() => 
             gameObject.SetActive(false)
 
             );

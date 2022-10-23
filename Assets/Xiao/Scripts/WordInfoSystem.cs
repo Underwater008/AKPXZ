@@ -7,8 +7,8 @@ namespace XiaoWordSystem
     public class WordInfoSystem : MonoBehaviour
     {
     [Header("Properties")]
-    [SerializeField]
-    private TypeWriterEffect TextCanvas; // the single char genarated
+
+    public TypeWriterEffect TextCanvas; // the single char genarated
                                    //private List<TypeWriterEffect> wordItemList; // all the word
 
         private void OnTriggerEnter(Collider other)

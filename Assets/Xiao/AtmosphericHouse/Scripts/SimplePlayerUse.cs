@@ -11,6 +11,7 @@
         public GameObject flashlight;
         public KeyCode OpenClose;
         public KeyCode Flashlight;
+        public KeyCode Intereact;
 
         void Start()
         {
@@ -32,7 +33,7 @@
                     flashlight.SetActive(true);
             }
 
-            if (Input.GetKeyDown(KeyCode.F))
+            if (Input.GetKeyDown(Intereact))
             {
                 PickUpRaycastCheck();
             }
@@ -62,6 +63,8 @@
             {
                 if (hit.collider.gameObject.GetComponent<DeliveryBox>())
                 {
+                    TypeWriterEffect _typeWritterEffect = gameObject.GetComponent<DeliveryBox>().textCanvas;
+                    _typeWritterEffect.HideText();
                     // Debug.Log("Object with SimpleOpenClose script found");
                     gameObject.GetComponent<CharacterController>().enabled = false;
                     gameObject.GetComponent<SimplePlayerController>().enabled = false;
