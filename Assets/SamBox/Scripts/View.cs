@@ -34,6 +34,7 @@ public class View : MonoBehaviour
         characterController = GetComponent<CharacterController>();
 
         controller = new Controller(model);
+
     }
 
 

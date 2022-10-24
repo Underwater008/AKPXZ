@@ -7,7 +7,7 @@ using UnityEngine;
 public class SimplePlayerController : MonoBehaviour
 {
     public Camera playerCamera;
-    public float walkSpeed = 1.15f;
+    public float walkSpeed = 0.65f;//Zeric change this, original number was 1.15
     public float runSpeed = 4.0f;
     public float lookSpeed = 2.0f;
     public float lookXLimit = 60.0f;
@@ -36,6 +36,9 @@ public class SimplePlayerController : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+        //Zeric
+        if (WalkAnim.instance != null)
+            WalkAnim.instance.ChangeAnimState(curSpeedX != 0);
 
         if (!characterController.isGrounded)
         {
