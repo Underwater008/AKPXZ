@@ -29,33 +29,7 @@ public class Scene1Transition : MonoBehaviour
 
     void Update()
     {
-        if (!played && timer > 0.5f)
-            returnCamera.transform.localRotation = playerCamera.transform.localRotation;
 
-        if (timer < 0.5f)
-        {
-            timer += Time.deltaTime;
-        }
-
-        //lerps player camera between target and return positions. depending on whether is playing the minigame.
-        if (played)
-        {
-            playerCamera.transform.position = Vector3.Lerp(returnCamera.transform.position, targetCamera.transform.position, timer / 0.5f);
-            playerCamera.transform.rotation = Quaternion.Lerp(returnCamera.transform.rotation, targetCamera.transform.rotation, timer / 0.5f);
-            if (timer > 0.5f)
-            {
-                //miniView.isActive = true;
-            }
-        }
-        else
-        {
-            playerCamera.transform.position = Vector3.Lerp(targetCamera.transform.position, returnCamera.transform.position, timer / 0.5f);
-            playerCamera.transform.rotation = Quaternion.Lerp(targetCamera.transform.rotation, returnCamera.transform.rotation, timer / 0.5f);
-            if (timer > 0.5f && enable)
-            {
-                playerView.isActive = true;
-            }
-        }
     }
 
     public void StartTansition()
