@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class Scene1Transition : MonoBehaviour
 {
@@ -13,18 +14,12 @@ public class Scene1Transition : MonoBehaviour
     public View playerView;
     public View miniView;
 
-    Transform playerCamera;
-    Transform targetCamera;
-    Transform returnCamera;
-    public float timer = 0;
+    public Transform NewsCamPos;
+    public Transform FPSCam;
 
     void Start()
     {
-        //sets the camera return posiiton.
-        playerCamera = playerView.gameObject.transform.Find("Camera");
-        returnCamera = playerView.gameObject.transform.Find("ReturnCam");
-        targetCamera = gameObject.transform.Find("Camera");
-        returnCamera.transform.position = playerCamera.transform.position;
+
     }
 
     void Update()
@@ -42,12 +37,16 @@ public class Scene1Transition : MonoBehaviour
 
         if (!played)
         {
-            timer = 0;
             Debug.Log("????");
             //playerView.enabled = false;
             //miniView.enabled = true;
+
+            FPSCam.DOMove(NewsCamPos.position, 1f);
+
             playerView.isActive = false;
             miniView.isActive = true;
+
+
             played = true;
             enable = false;
             //returnView = playerView;
@@ -55,7 +54,6 @@ public class Scene1Transition : MonoBehaviour
         //starts main player control, and pauses minigame player control.
         else if (played && (!miniView.trigger.triggered || miniView.trigger.played) && miniView.isActive)
         {
-            timer = 0;
             //playerView.enabled = true;
             //miniView.enabled = false;
             //playerView.isActive = true;
