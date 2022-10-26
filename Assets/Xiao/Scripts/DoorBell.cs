@@ -16,6 +16,9 @@ public class DoorBell : MonoBehaviour
     {
         simplePlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<SimplePlayerController>();
         simplePlayerController.canMove = false;
+
+        SofaCam.GetComponent<Camera>().depth = 1;
+        FPSCam.GetComponent<Camera>().depth = 0;
     }
 
     // Update is called once per frame
@@ -38,7 +41,8 @@ public class DoorBell : MonoBehaviour
             SofaCam.DORotate(new Vector3(0, 90, SofaCam.rotation.z), 0.5f).OnComplete(() => {
 
                 simplePlayerController.canMove = true;
-                FPSCam.GetComponent<Camera>().depth = Camera.main.depth + 1;
+                SofaCam.GetComponent<Camera>().depth = 0;
+                FPSCam.GetComponent<Camera>().depth = 1;
             }
             )
         );;

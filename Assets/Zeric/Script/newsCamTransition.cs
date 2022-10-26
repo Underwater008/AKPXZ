@@ -3,6 +3,7 @@ namespace XiaoWordSystem
     using System.Collections;
     using System.Collections.Generic;
     using UnityEngine;
+    using DG.Tweening;
 
     public class newsCamTransition : MonoBehaviour
     {
@@ -10,7 +11,8 @@ namespace XiaoWordSystem
         public Camera newsCam, MainCam;
         public Transform NewsReadingPos;
         private int IsInPosition;
-
+        public Transform News;
+        public Transform NewsInFrontPos;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -33,7 +35,16 @@ namespace XiaoWordSystem
             if (Input.GetKeyDown(KeyCode.F) && IsInPosition == 0)
             {
                 Debug.Log("Show box F");
-                StartCoroutine(LerpPlayerToNewsView(NewsReadingPos.position, NewsReadingPos.rotation, 1f, newsCam.transform));
+                var simplePlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<SimplePlayerController>();
+                simplePlayerController.canMove = false;
+                //StartCoroutine(LerpPlayerToNewsView(NewsReadingPos.position, NewsReadingPos.rotation, 1f, newsCam.transform));
+                News.SetParent(Camera.main.transform);
+                News.DOMove(NewsInFrontPos.position, 2f);
+                News.DORotate(NewsInFrontPos.eulerAngles, 2f).OnComplete(() => {
+                    Cursor.lockState = CursorLockMode.None;
+                    Cursor.visible = true; 
+                });
+                //News.LookAt(Camera.main.transform.position);
             }
 
             if (Input.GetKey(KeyCode.Escape) && IsInPosition == 2)
@@ -43,6 +54,7 @@ namespace XiaoWordSystem
             }
         }
 
+            
             IEnumerator LerpPlayerToNewsView(Vector3 targetPosition, Quaternion targetRotation, float duration, Transform Transformee)
             {
                 IsInPosition = 1;
