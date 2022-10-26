@@ -36,7 +36,8 @@ namespace XiaoWordSystem
             {
                 Debug.Log("Show box F");
                 var simplePlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<SimplePlayerController>();
-                simplePlayerController.canMove = false;
+                //Stop player movement
+                simplePlayerController.canMove = false; 
                 //StartCoroutine(LerpPlayerToNewsView(NewsReadingPos.position, NewsReadingPos.rotation, 1f, newsCam.transform));
                 News.SetParent(Camera.main.transform);
                 News.DOMove(NewsInFrontPos.position, 2f);
