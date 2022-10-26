@@ -16,7 +16,7 @@ public class SimplePlayerController : MonoBehaviour
     CharacterController characterController;
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
-    private bool canMove = true;
+    public bool canMove = true;
 
     void Start()
     {
@@ -36,6 +36,7 @@ public class SimplePlayerController : MonoBehaviour
         float curSpeedY = canMove ? (isRunning ? runSpeed : walkSpeed) * Input.GetAxis("Horizontal") : 0;
         float movementDirectionY = moveDirection.y;
         moveDirection = (forward * curSpeedX) + (right * curSpeedY);
+
         //Zeric
         if (WalkAnim.instance != null)
             WalkAnim.instance.ChangeAnimState(curSpeedX != 0);

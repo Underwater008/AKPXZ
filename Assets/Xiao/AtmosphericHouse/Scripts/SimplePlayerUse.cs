@@ -7,11 +7,13 @@
     public class SimplePlayerUse : MonoBehaviour
     {
         public GameObject mainCamera;
+        public Camera sofaCamera;
         private GameObject objectClicked;
         public GameObject flashlight;
         public KeyCode OpenClose;
         public KeyCode Flashlight;
         public KeyCode Intereact;
+        public bool isStart = false;
 
         void Start()
         {
@@ -32,11 +34,12 @@
                 else
                     flashlight.SetActive(true);
             }
-
+            
             if (Input.GetKeyDown(Intereact))
             {
                 PickUpRaycastCheck();
             }
+
         }
 
         void RaycastCheck()
@@ -50,9 +53,7 @@
                     // Debug.Log("Object with SimpleOpenClose script found");
                     hit.collider.gameObject.BroadcastMessage("ObjectClicked");
                 }
-
             }
-
         }
 
         void PickUpRaycastCheck()
