@@ -29,9 +29,9 @@ public class Scene1Transition : MonoBehaviour
 
     public void StartTansition()
     {
-        Cursor.visible = false;
+        //Cursor.visible = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         Debug.Log("Clicked");
 

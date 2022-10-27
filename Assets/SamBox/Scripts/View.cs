@@ -21,15 +21,15 @@ public class View : MonoBehaviour
 
     void Awake()
     {
-		Cursor.visible = false;
+		//Cursor.visible = false;
 
-        Cursor.lockState = CursorLockMode.Locked;
+  //      Cursor.lockState = CursorLockMode.Locked;
     }
     void Start()
     {
-		Cursor.visible = false;
+		//Cursor.visible = false;
         
-        Cursor.lockState = CursorLockMode.Locked;
+  //      Cursor.lockState = CursorLockMode.Locked;
 
         characterController = GetComponent<CharacterController>();
 

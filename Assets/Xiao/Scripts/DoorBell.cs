@@ -11,9 +11,12 @@ public class DoorBell : MonoBehaviour
 
     public Transform SofaCam;
 
+    public static DoorBell instance;
+
     // Start is called before the first frame update
     void Start()
     {
+        instance = this;
         simplePlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<SimplePlayerController>();
         simplePlayerController.canMove = false;
 
@@ -27,24 +30,29 @@ public class DoorBell : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             StandUp();
-            Debug.Log("C pressed to stand up");
         }
     }
 
     //Move Camera and switch to FPS Cam
     public void StandUp()
     {
-        SofaCam.DOMove(FPSCam.position, 1f);
+        SofaCam.DOMove(FPSCam.position, 1f).OnComplete(() => {
 
-        SofaCam.DORotate(new Vector3(-15, 90, SofaCam.rotation.z), 0.5f).OnComplete(() =>
+            simplePlayerController.canMove = true;
+            SofaCam.GetComponent<Camera>().depth = 0;
+            FPSCam.GetComponent<Camera>().depth = 1;
+        }
+            ); 
 
-            SofaCam.DORotate(new Vector3(0, 90, SofaCam.rotation.z), 0.5f).OnComplete(() => {
+        //SofaCam.DORotate(new Vector3(-15, 90, SofaCam.rotation.z), 0.5f).OnComplete(() =>
 
-                simplePlayerController.canMove = true;
-                SofaCam.GetComponent<Camera>().depth = 0;
-                FPSCam.GetComponent<Camera>().depth = 1;
-            }
-            )
-        );;
+        //    SofaCam.DORotate(new Vector3(0, 90, SofaCam.rotation.z), 0.5f).OnComplete(() => {
+
+        //        simplePlayerController.canMove = true;
+        //        SofaCam.GetComponent<Camera>().depth = 0;
+        //        FPSCam.GetComponent<Camera>().depth = 1;
+        //    }
+        //    )
+        //);;
     }
 }
