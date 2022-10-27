@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using MText;
 
 public class crosshair : MonoBehaviour
 {
@@ -46,6 +47,15 @@ public class crosshair : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<Outline>() != null)
                 {
                     hit.collider.gameObject.GetComponent<Outline>().enabled = true;
+                    if (!hit.collider.transform.GetChild(0).GetComponent<Typewriter>().Typed)
+                    {
+                        currentHighlighted.transform.GetChild(0).gameObject.SetActive(true);
+                        hit.collider.transform.GetChild(0).GetComponent<Typewriter>().StartTyping();
+                    }
+                    else
+                    {
+                        hit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                    }
                 }
                 else
                 {
@@ -61,6 +71,7 @@ public class crosshair : MonoBehaviour
                 Debug.Log(" Just leave one");
                 this.GetComponent<RawImage>().color = OriginalColor;
                 currentHighlighted.GetComponent<Outline>().enabled = false;
+                currentHighlighted.transform.GetChild(0).gameObject.SetActive(false);
                 currentHighlighted = null;
             }
         }
