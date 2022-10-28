@@ -36,16 +36,19 @@ public class DoorBell : MonoBehaviour
     //Move Camera and switch to FPS Cam
     public void StandUp()
     {
-        SofaCam.DORotate(FPSCam.rotation.eulerAngles, 1f).OnComplete(() => {
+        SofaCam.DORotate(FPSCam.rotation.eulerAngles, 1f).OnComplete(() =>
+        {
         }
-);
-        SofaCam.DOMove(FPSCam.position, 1f).OnComplete(() => {
+            );
+
+        SofaCam.DOMove(FPSCam.position, 1f).OnComplete(() =>
+        {
 
             simplePlayerController.canMove = true;
             SofaCam.GetComponent<Camera>().depth = 0;
             FPSCam.GetComponent<Camera>().depth = 1;
         }
-            ); 
+            );
 
         //SofaCam.DORotate(new Vector3(-15, 90, SofaCam.rotation.z), 0.5f).OnComplete(() =>
 
