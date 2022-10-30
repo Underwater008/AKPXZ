@@ -15,6 +15,8 @@ using UnityEngine;
 
 public class Outline : MonoBehaviour
 {
+    public bool HasButton;
+    public GameObject MyText;
     private static HashSet<Mesh> registeredMeshes = new HashSet<Mesh>();
 
     public enum Mode

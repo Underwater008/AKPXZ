@@ -14,6 +14,7 @@ public class crosshair : MonoBehaviour
     public Color HitColor;
     private bool IHit;
     GameObject currentHighlighted;
+    public bool CanClick;
     private void Start()
     {
         mask = LayerMask.GetMask("Highlighted");
@@ -25,7 +26,7 @@ public class crosshair : MonoBehaviour
     {
 
         bool BeforeRay = IHit;
-       // Debug.DrawRay(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward) * 1.5f, Color.yellow);
+        // Debug.DrawRay(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward) * 1.5f, Color.yellow);
         RaycastHit hit;
         if (Physics.Raycast(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward), out hit, 1.5f, mask))
         {
@@ -38,7 +39,7 @@ public class crosshair : MonoBehaviour
         }
 
 
-        if(IHit != BeforeRay)
+        if (IHit != BeforeRay)
         {
             if (!BeforeRay)
             {
@@ -47,14 +48,23 @@ public class crosshair : MonoBehaviour
                 if (hit.collider.gameObject.GetComponent<Outline>() != null)
                 {
                     hit.collider.gameObject.GetComponent<Outline>().enabled = true;
-                    if (!hit.collider.transform.GetChild(0).GetComponent<Typewriter>().Typed)
+                    Outline temp = hit.collider.gameObject.GetComponent<Outline>();
+                    if (temp.MyText != null)
                     {
-                        currentHighlighted.transform.GetChild(0).gameObject.SetActive(true);
-                        hit.collider.transform.GetChild(0).GetComponent<Typewriter>().StartTyping();
-                    }
-                    else
-                    {
-                        hit.collider.transform.GetChild(0).gameObject.SetActive(true);
+                        if (!temp.MyText.GetComponent<Typewriter>().Typed)
+                        {
+                            temp.MyText.SetActive(true);
+                            temp.MyText.GetComponent<Typewriter>().StartTyping();
+                        }
+                        else
+                        {
+                            temp.MyText.SetActive(true);
+                        }
+
+                        if (temp.HasButton)
+                        {
+                            CanClick = true;
+                        }
                     }
                 }
                 else
@@ -68,13 +78,25 @@ public class crosshair : MonoBehaviour
             }
             else
             {
-                Debug.Log(" Just leave one");
+
                 this.GetComponent<RawImage>().color = OriginalColor;
+                if (currentHighlighted.GetComponent<Outline>().MyText != null)
+                    currentHighlighted.GetComponent<Outline>().MyText.SetActive(false);
                 currentHighlighted.GetComponent<Outline>().enabled = false;
-                currentHighlighted.transform.GetChild(0).gameObject.SetActive(false);
                 currentHighlighted = null;
+                CanClick = false;
             }
         }
+
+        if (CanClick)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Debug.Log("das");
+                hit.collider.gameObject.GetComponent<Animation>().Play();
+            }
+        }
+
 
     }
 }
