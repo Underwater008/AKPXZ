@@ -24,6 +24,7 @@ namespace MText
         void Start()
         {
             modular3DText.Text = "";
+            Debug.Log("Disable all text");
         }
 
         //call this
