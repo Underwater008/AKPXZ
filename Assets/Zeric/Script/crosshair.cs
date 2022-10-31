@@ -92,7 +92,6 @@ public class crosshair : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("das");
                 hit.collider.gameObject.GetComponent<Animation>().Play();
             }
         }
