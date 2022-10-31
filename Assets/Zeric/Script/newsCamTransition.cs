@@ -44,7 +44,9 @@ namespace XiaoWordSystem
                 //Stop player movement
                 var simplePlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<SimplePlayerController>();
                 var playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<Animator>();
+                var mainCamAnimator = GameObject.Find("MainCamera").GetComponent<Animator>();
                 playerAnimator.enabled = false;
+                mainCamAnimator.enabled = false;
                 simplePlayerController.canMove = false;
 
                 //StartCoroutine(LerpPlayerToNewsView(NewsReadingPos.position, NewsReadingPos.rotation, 1f, newsCam.transform));
