@@ -15,6 +15,10 @@ public class crosshair : MonoBehaviour
     private bool IHit;
     GameObject currentHighlighted;
     public bool CanClick;
+
+    //phone called
+    private bool MaddyCalled;
+
     private void Start()
     {
         mask = LayerMask.GetMask("Highlighted");
@@ -60,11 +64,10 @@ public class crosshair : MonoBehaviour
                         {
                             temp.MyText.SetActive(true);
                         }
-
-                        if (temp.HasButton)
-                        {
-                            CanClick = true;
-                        }
+                    }
+                    if (temp.HasButton)
+                    {
+                        CanClick = true;
                     }
                 }
                 else
@@ -88,14 +91,38 @@ public class crosshair : MonoBehaviour
             }
         }
 
+        InteractionCheck(hit);
+
+        //maddy call's
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!MaddyCalled)
+            {
+                MaddyCalled = true;
+
+                PhoneCall.instance.PhoneStart();
+            }
+        }
+
+    }
+
+    public void InteractionCheck(RaycastHit hit)
+    {
         if (CanClick)
         {
             if (Input.GetMouseButtonDown(0))
             {
+                if (hit.collider.gameObject.GetComponent<PhoneCall>() != null)
+                {
+                    Debug.Log("S");
+                    hit.collider.gameObject.GetComponent<Animation>().Stop();
+                    hit.collider.gameObject.GetComponent<Animation>().Play("PickUp");
+                    return;
+                }
+
                 hit.collider.gameObject.GetComponent<Animation>().Play();
+
             }
         }
-
-
     }
 }
