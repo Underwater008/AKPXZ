@@ -19,6 +19,7 @@ namespace XiaoWordSystem
             if(GetComponent<Outline>() != null)
             {
                 Typewriter temp = this.GetComponent<Outline>().MyText.GetComponent<Typewriter>();
+                temp.StopAllCoroutines();
                 temp.text = TextChangeInto;
                 temp.StartTyping();
             }

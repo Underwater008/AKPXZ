@@ -19,8 +19,11 @@ public class crosshair : MonoBehaviour
     //phone called
     private bool MaddyCalled;
 
+    public static bool HaveGlasses;
+
     private void Start()
     {
+        HaveGlasses = true;
         mask = LayerMask.GetMask("Highlighted");
         OriginalColor = this.GetComponent<RawImage>().color;
         IHit = false;
