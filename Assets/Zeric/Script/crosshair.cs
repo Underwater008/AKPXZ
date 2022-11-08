@@ -21,8 +21,10 @@ public class crosshair : MonoBehaviour
 
     public static bool HaveGlasses;
 
+    public static crosshair instance;
     private void Start()
     {
+        instance = this;
         HaveGlasses = true;
         mask = LayerMask.GetMask("Highlighted");
         OriginalColor = this.GetComponent<RawImage>().color;
@@ -75,11 +77,24 @@ public class crosshair : MonoBehaviour
                 }
                 else
                 {
-                    //Outline tempOutline = hit.collider.gameObject.AddComponent<Outline>();
-                    //tempOutline.OutlineColor = Color.white;
-                    //tempOutline.OutlineWidth = 2;
-                    //tempOutline.OutlineMode = Outline.Mode.OutlineVisible;
-                    Debug.Log("Outline compoment missing on the highlighted gameobject: " + hit.collider.gameObject.name);
+                    //foreach (Outline tempoutline in hit.collider.gameObject.GetComponentsInChildren<Outline>())
+                    //{
+                    //    tempoutline.enabled = true;
+                    //}
+                    //Outline temp = hit.collider.gameObject.GetComponent<Outline>();
+                    //if (temp.MyText != null)
+                    //{
+                    //    if (!temp.MyText.GetComponent<Typewriter>().Typed)
+                    //    {
+                    //        temp.MyText.SetActive(true);
+                    //        temp.MyText.GetComponent<Typewriter>().StartTyping();
+                    //    }
+                    //    else
+                    //    {
+                    //        temp.MyText.SetActive(true);
+                    //    }
+                    //}
+
                 }
             }
             else

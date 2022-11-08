@@ -5,63 +5,26 @@ using DG.Tweening;
 
 public class Scene1Transition : MonoBehaviour
 {
-    //bool keeping track of whether is triggered.
-    public bool triggered = false;
-    public bool played = false;
-    public bool enable = false;
-    public bool miniEnable = false;
 
-    public View playerView;
-    public View miniView;
+
 
     public Transform NewsCamPos;
     public Transform FPSCam;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
-    public void StartTansition()
+    public SimplePlayerController HousePlayer, CarPlayer, DoctorPlayer;
+    public void StartTansitionToCar()
     {
         Cursor.visible = false;
 
         Cursor.lockState = CursorLockMode.Locked;
+        FPSCam.DORotate(NewsCamPos.rotation.eulerAngles, 1f).OnComplete(() => {
+            crosshair.instance.gameObject.SetActive(true);
+        });
 
-        Debug.Log("Clicked");
-
-        if (!played)
-        {
-            Debug.Log("????");
-            //playerView.enabled = false;
-            //miniView.enabled = true;
-
-            FPSCam.DOMove(NewsCamPos.position, 1f);
-
-            playerView.isActive = false;
-            miniView.isActive = true;
-
-
-            played = true;
-            enable = false;
-            //returnView = playerView;
-        }
-        //starts main player control, and pauses minigame player control.
-        else if (played && (!miniView.trigger.triggered || miniView.trigger.played) && miniView.isActive)
-        {
-            //playerView.enabled = true;
-            //miniView.enabled = false;
-            //playerView.isActive = true;
-            miniView.isActive = false;
-            played = false;
-            enable = true;
-            //targetCamera.transform.rotation = playerCamera.transform.rotation;
-        }
-
+        FPSCam.DOMove(NewsCamPos.position, 1f).OnComplete(() => {
+            HousePlayer.enabled = false;
+            CarPlayer.enabled = true;
+            CarPlayer.transform.GetChild(0).GetComponent<WalkAnim>().enabled = true;
+            });
     }
 }

@@ -12,7 +12,7 @@ public class PhoneCall : MonoBehaviour
     private void Start()
     {
         instance = this;
-
+        StartCoroutine(timerStart());
     }
 
     public void PhoneStart()
@@ -69,5 +69,10 @@ public class PhoneCall : MonoBehaviour
         this.GetComponent<Outline>().MyText.GetComponent<Typewriter>().StopAllCoroutines();
     }
 
+    IEnumerator timerStart()
+    {
+        yield return new WaitForSeconds(60);
+        PhoneStart();
+    }
 
 }

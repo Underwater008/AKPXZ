@@ -16,6 +16,7 @@ public class NewsInteract : MonoBehaviour
             StartCoroutine(LerpPlayerToNewsView(NewsReadingPos.position, NewsReadingPos.rotation, 1f, newsCam.transform));
             int temp = LayerMask.NameToLayer("Default");
             this.gameObject.layer = temp;
+            //crosshair.instance.gameObject.SetActive(false);
         }
 
     }
@@ -28,7 +29,6 @@ public class NewsInteract : MonoBehaviour
         newsCam.transform.rotation = Camera.main.transform.rotation;
         TempCam = Camera.main;
         MainCam.enabled = false;
-        Camera.main.enabled = false;
         newsCam.enabled = true;
         //lerp the position to the animation position
         float time = 0;

@@ -24,6 +24,7 @@ namespace MText
         {
             modular3DText.Text = "";
             Debug.Log("Disable all text");
+            speed = 0.00001f;
         }
 
         //call this
@@ -43,7 +44,7 @@ namespace MText
 
 
                     yield return null;
-                    yield return new WaitForSeconds(speed);
+                    //yield return new WaitForSeconds(speed);
                 }
 
             }
@@ -69,7 +70,7 @@ namespace MText
 
 
                     yield return null;
-                    yield return new WaitForSeconds(speed);
+                    //yield return new WaitForSeconds(speed);
 
                 }
 
