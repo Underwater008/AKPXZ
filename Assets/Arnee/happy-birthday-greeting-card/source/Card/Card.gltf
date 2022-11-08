@@ -1,0 +1,474 @@
+{
+    "asset" : {
+        "generator" : "Khronos glTF Blender I/O v1.5.17",
+        "version" : "2.0"
+    },
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                10,
+                11,
+                12
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "Object_10"
+        },
+        {
+            "children" : [
+                0
+            ],
+            "name" : "Base_2"
+        },
+        {
+            "children" : [
+                1
+            ],
+            "name" : "Card.001_3"
+        },
+        {
+            "children" : [
+                2
+            ],
+            "name" : "Card.001",
+            "rotation" : [
+                0,
+                -0.7071068286895752,
+                0.7071068286895752,
+                3.090862321641907e-08
+            ]
+        },
+        {
+            "mesh" : 1,
+            "name" : "Object_6"
+        },
+        {
+            "children" : [
+                4
+            ],
+            "name" : "Card_Left_1",
+            "rotation" : [
+                -0.0002045772416749969,
+                0.7071067690849304,
+                -0.7071067094802856,
+                0.0002045154251391068
+            ],
+            "translation" : [
+                -4.306787967681885,
+                0.11190754920244217,
+                -0.5105748772621155
+            ]
+        },
+        {
+            "mesh" : 2,
+            "name" : "Object_4"
+        },
+        {
+            "children" : [
+                6
+            ],
+            "name" : "Right_Card_0",
+            "rotation" : [
+                0.0002045154687948525,
+                0.7071067690849304,
+                -0.7071067094802856,
+                -0.0002045772416749969
+            ],
+            "translation" : [
+                5.559264183044434,
+                0.09651444107294083,
+                -0.5105761289596558
+            ]
+        },
+        {
+            "children" : [
+                3,
+                5,
+                7
+            ],
+            "name" : "Card",
+            "rotation" : [
+                0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ]
+        },
+        {
+            "children" : [
+                8
+            ],
+            "name" : "root"
+        },
+        {
+            "children" : [
+                9
+            ],
+            "name" : "Birthday Card",
+            "rotation" : [
+                -0.7071068286895752,
+                0,
+                0,
+                0.7071068286895752
+            ],
+            "scale" : [
+                0.22126071155071259,
+                0.22126071155071259,
+                0.22126071155071259
+            ]
+        },
+        {
+            "name" : "Light",
+            "rotation" : [
+                0.16907575726509094,
+                0.7558803558349609,
+                -0.27217137813568115,
+                0.570947527885437
+            ],
+            "translation" : [
+                4.076245307922363,
+                5.903861999511719,
+                -1.0054539442062378
+            ]
+        },
+        {
+            "name" : "Camera",
+            "rotation" : [
+                0.483536034822464,
+                0.33687159419059753,
+                -0.20870360732078552,
+                0.7804827094078064
+            ],
+            "translation" : [
+                7.358891487121582,
+                4.958309173583984,
+                6.925790786743164
+            ]
+        }
+    ],
+    "animations" : [
+        {
+            "channels" : [
+                {
+                    "sampler" : 0,
+                    "target" : {
+                        "node" : 7,
+                        "path" : "rotation"
+                    }
+                },
+                {
+                    "sampler" : 1,
+                    "target" : {
+                        "node" : 5,
+                        "path" : "rotation"
+                    }
+                }
+            ],
+            "name" : "Animation",
+            "samplers" : [
+                {
+                    "input" : 12,
+                    "interpolation" : "LINEAR",
+                    "output" : 13
+                },
+                {
+                    "input" : 12,
+                    "interpolation" : "LINEAR",
+                    "output" : 14
+                }
+            ]
+        }
+    ],
+    "materials" : [
+        {
+            "doubleSided" : true,
+            "name" : "lambert2",
+            "pbrMetallicRoughness" : {
+                "baseColorTexture" : {
+                    "index" : 0
+                },
+                "metallicFactor" : 0,
+                "roughnessFactor" : 0.5527859926223755
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "Object_2",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 0,
+                        "NORMAL" : 1,
+                        "TEXCOORD_0" : 2
+                    },
+                    "indices" : 3,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Object_1",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 4,
+                        "NORMAL" : 5,
+                        "TEXCOORD_0" : 6
+                    },
+                    "indices" : 7,
+                    "material" : 0
+                }
+            ]
+        },
+        {
+            "name" : "Object_0",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "POSITION" : 8,
+                        "NORMAL" : 9,
+                        "TEXCOORD_0" : 10
+                    },
+                    "indices" : 11,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "textures" : [
+        {
+            "sampler" : 0,
+            "source" : 0
+        }
+    ],
+    "images" : [
+        {
+            "mimeType" : "image/jpeg",
+            "name" : "Card.jpg",
+            "uri" : "Card_jpg.jpg"
+        }
+    ],
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5126,
+            "count" : 30,
+            "max" : [
+                4.307161808013916,
+                8.08433723449707,
+                1.0953404439836617e-15
+            ],
+            "min" : [
+                -5.558788776397705,
+                -7.0631866455078125,
+                -0.04633166268467903
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 30,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 30,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 4,
+            "componentType" : 5126,
+            "count" : 371,
+            "max" : [
+                0,
+                7.573760986328125,
+                0.06430646777153015
+            ],
+            "min" : [
+                -6.830845832824707,
+                -7.573760986328125,
+                -0.04963052272796631
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 5,
+            "componentType" : 5126,
+            "count" : 371,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 6,
+            "componentType" : 5126,
+            "count" : 371,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 7,
+            "componentType" : 5123,
+            "count" : 384,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 8,
+            "componentType" : 5126,
+            "count" : 36,
+            "max" : [
+                5.213735103607178,
+                7.573761463165283,
+                0.047725528478622437
+            ],
+            "min" : [
+                0,
+                -7.5737624168396,
+                -0.004641197621822357
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 9,
+            "componentType" : 5126,
+            "count" : 36,
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 10,
+            "componentType" : 5126,
+            "count" : 36,
+            "type" : "VEC2"
+        },
+        {
+            "bufferView" : 11,
+            "componentType" : 5123,
+            "count" : 36,
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 12,
+            "componentType" : 5126,
+            "count" : 601,
+            "max" : [
+                25
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 13,
+            "componentType" : 5126,
+            "count" : 601,
+            "type" : "VEC4"
+        },
+        {
+            "bufferView" : 14,
+            "componentType" : 5126,
+            "count" : 601,
+            "type" : "VEC4"
+        }
+    ],
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 360,
+            "byteOffset" : 0
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 360,
+            "byteOffset" : 360
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 240,
+            "byteOffset" : 720
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 960
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4452,
+            "byteOffset" : 1032
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 4452,
+            "byteOffset" : 5484
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2968,
+            "byteOffset" : 9936
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 768,
+            "byteOffset" : 12904
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 432,
+            "byteOffset" : 13672
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 432,
+            "byteOffset" : 14104
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 288,
+            "byteOffset" : 14536
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 72,
+            "byteOffset" : 14824
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 2404,
+            "byteOffset" : 14896
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9616,
+            "byteOffset" : 17300
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 9616,
+            "byteOffset" : 26916
+        }
+    ],
+    "samplers" : [
+        {
+            "magFilter" : 9729,
+            "minFilter" : 9987
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 36532,
+            "uri" : "Card.bin"
+        }
+    ]
+}
