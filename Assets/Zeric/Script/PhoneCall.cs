@@ -9,7 +9,7 @@ public class PhoneCall : MonoBehaviour
     private Typewriter mytypewriter;
     public GameObject SlideDoor;
     public AudioClip MaddySpeaking;
-    private void Start()
+    public void PhoneSetup()
     {
         instance = this;
         StartCoroutine(timerStart());

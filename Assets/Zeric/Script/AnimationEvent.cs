@@ -10,6 +10,8 @@ namespace XiaoWordSystem
     {
         public string TextChangeInto;
         public Transform personPos;
+
+        public GameObject ObjectToHighlight;
         public void StartLerpBack()
         {
             transform.parent.parent.GetComponent<newsCamTransition>().PlayerLerpBack();
@@ -33,6 +35,12 @@ namespace XiaoWordSystem
             this.transform.DOMove(personPos.position, 1.4f).OnComplete(() => {
                 this.gameObject.SetActive(false);
             });
+        }
+
+        public void SetThingsHighlight()
+        {
+            int temp = LayerMask.NameToLayer("Highlighted");
+            ObjectToHighlight.layer = temp;
         }
     }
 }

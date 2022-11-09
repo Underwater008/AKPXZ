@@ -8,6 +8,7 @@ using TMPro;
 public class ButtonFunction : MonoBehaviour
 {
     public GameObject Title, Play, Point;
+    public GameObject Phone;
     public void StartGame()
     {
         Title.GetComponent<TMP_Text>().DOFade(0,1).OnComplete(() => {
@@ -17,6 +18,7 @@ public class ButtonFunction : MonoBehaviour
             DoorBell.instance.StandUp();
             Play.SetActive(false);
             Point.SetActive(true);
+            Phone.GetComponent<PhoneCall>().PhoneSetup();
         }).OnStart(() => {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
