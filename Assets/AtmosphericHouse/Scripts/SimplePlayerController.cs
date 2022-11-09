@@ -17,6 +17,7 @@ public class SimplePlayerController : MonoBehaviour
     Vector3 moveDirection = Vector3.zero;
     float rotationX = 0;
     public bool canMove = true;
+    public bool IsInDoc;
 
     void Start()
     {
@@ -46,6 +47,7 @@ public class SimplePlayerController : MonoBehaviour
             moveDirection.y -= gravity * Time.deltaTime;
         }
 
+        if(!IsInDoc)
         characterController.Move(moveDirection * Time.deltaTime);
 
         if (canMove)

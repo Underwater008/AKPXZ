@@ -25,6 +25,7 @@ public class Scene1Transition : MonoBehaviour
             HousePlayer.enabled = false;
             CarPlayer.enabled = true;
             CarPlayer.transform.GetChild(0).GetComponent<WalkAnim>().enabled = true;
+            crosshair.instance.CurrentCamera = CarPlayer.transform.GetChild(0).transform;
             });
     }
 }
