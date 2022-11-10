@@ -7,7 +7,7 @@ public class NewsInteract : MonoBehaviour
 {
 
 
-    public Camera newsCam, TempCam, MainCam;
+    public Camera newsCam, MainCam;
     public Transform NewsReadingPos;
     public void Read()
     {
@@ -25,9 +25,8 @@ public class NewsInteract : MonoBehaviour
     IEnumerator LerpPlayerToNewsView(Vector3 targetPosition, Quaternion targetRotation, float duration, Transform Transformee)
     {
         //change the active camera to the news cam
-        newsCam.transform.position = Camera.main.transform.position;
-        newsCam.transform.rotation = Camera.main.transform.rotation;
-        TempCam = Camera.main;
+        newsCam.transform.position = MainCam.transform.position;
+        newsCam.transform.rotation = MainCam.transform.rotation;
         MainCam.enabled = false;
         newsCam.enabled = true;
         //lerp the position to the animation position

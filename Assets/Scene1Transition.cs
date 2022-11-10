@@ -57,6 +57,7 @@ public class Scene1Transition : MonoBehaviour
             FPSCam.GetComponent<Camera>().enabled = false;
             HousePlayer.transform.GetChild(0).GetComponent<Camera>().enabled = true;
             HousePlayer.transform.parent.GetComponent<Animation>().Play();
+            Debug.Log("House is a mess!");
         });
     }
 
