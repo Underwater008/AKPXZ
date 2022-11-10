@@ -18,6 +18,7 @@ namespace MText
         [SerializeField] bool startAutomatically = true;
         [SerializeField] float startDelay = 0;
 
+        public bool TypeFromStart;
         public bool Typed;
 
         void Start()
@@ -25,6 +26,8 @@ namespace MText
             modular3DText.Text = "";
             Debug.Log("Disable all text");
             speed = 0.00001f;
+            if(TypeFromStart)
+            { StartTyping(); }
         }
 
         //call this

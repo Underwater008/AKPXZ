@@ -14,6 +14,8 @@ namespace XiaoWordSystem
         public GameObject ObjectToHighlight;
 
         public GameObject[] thingsSetDefault;
+
+        public GameObject Drawer;
         public void StartLerpBack()
         {
             transform.parent.parent.GetComponent<newsCamTransition>().PlayerLerpBack();
@@ -36,6 +38,7 @@ namespace XiaoWordSystem
             });
             this.transform.DOMove(personPos.position, 1.4f).OnComplete(() => {
                 this.gameObject.SetActive(false);
+                crosshair.HaveGlasses = true;
             });
         }
 
@@ -52,6 +55,12 @@ namespace XiaoWordSystem
             {
                 thingsSetDefault[i].layer = temp;
             }
+        }
+
+
+        public void GoBackDrawer()
+        {
+            Drawer.GetComponent<Scene1Transition>().LerpPlayerbackDrawer();
         }
     }
 }

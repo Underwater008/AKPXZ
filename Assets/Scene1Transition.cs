@@ -12,6 +12,7 @@ public class Scene1Transition : MonoBehaviour
     public Transform FPSCam;
 
     public Transform targetCam;
+    public GameObject MessHouse;
 
     public SimplePlayerController HousePlayer, CarPlayer, DoctorPlayer;
     public void StartTansitionToCar()
@@ -58,6 +59,8 @@ public class Scene1Transition : MonoBehaviour
             HousePlayer.transform.GetChild(0).GetComponent<Camera>().enabled = true;
             HousePlayer.transform.parent.GetComponent<Animation>().Play();
             Debug.Log("House is a mess!");
+            MessHouse.SetActive(true);
+
         });
     }
 
@@ -131,7 +134,7 @@ public class Scene1Transition : MonoBehaviour
             crosshair.instance.CurrentCamera = DoctorPlayer.transform.GetChild(0).transform;
             HousePlayer.GetComponentInChildren<AudioListener>().enabled = false;
             DoctorPlayer.GetComponentInChildren<AudioListener>().enabled = true;
-            //DoctorPlayer.transform.parent.GetComponent<Animation>().Play();
+            DoctorPlayer.transform.parent.GetComponent<Animation>().Play();
         });
     }
 

@@ -24,7 +24,7 @@ public class PhoneCall : MonoBehaviour
         mytypewriter.Typed = true;
         mytypewriter.text = "Phone Ringing! " +
             "[Pick up]";
-        this.GetComponent<Outline>().HasButton = true;
+        //this.GetComponent<Outline>().HasButton = true;
         mytypewriter.StartTypingLoop();
         StartCoroutine(RingTimer(10));
         this.GetComponent<AudioSource>().Play();
@@ -66,6 +66,8 @@ public class PhoneCall : MonoBehaviour
         this.GetComponent<Outline>().HasButton = false;
         mytypewriter.modular3DText.Text = "You missed a phone call.";
         this.GetComponent<Outline>().MyText = mytypewriter.gameObject;
+        this.GetComponent<AudioSource>().clip = MaddySpeaking;
+        this.GetComponent<AudioSource>().Play();
         this.GetComponent<Outline>().MyText.GetComponent<Typewriter>().StopAllCoroutines();
     }
 
