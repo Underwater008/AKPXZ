@@ -12,6 +12,8 @@ namespace XiaoWordSystem
         public Transform personPos;
 
         public GameObject ObjectToHighlight;
+
+        public GameObject[] thingsSetDefault;
         public void StartLerpBack()
         {
             transform.parent.parent.GetComponent<newsCamTransition>().PlayerLerpBack();
@@ -41,6 +43,15 @@ namespace XiaoWordSystem
         {
             int temp = LayerMask.NameToLayer("Highlighted");
             ObjectToHighlight.layer = temp;
+        }
+
+        public void SetThingsDefault()
+        {
+            int temp = LayerMask.NameToLayer("Default");
+            for (int i = 0; i < thingsSetDefault.Length; i++)
+            {
+                thingsSetDefault[i].layer = temp;
+            }
         }
     }
 }
