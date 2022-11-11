@@ -73,7 +73,7 @@ public class PhoneCall : MonoBehaviour
 
     IEnumerator timerStart()
     {
-        yield return new WaitForSeconds(60);
+        yield return new WaitForSeconds(35);
         PhoneStart();
     }
 
