@@ -15,6 +15,8 @@ public class Scene1Transition : MonoBehaviour
     public GameObject MessHouse;
 
     public SimplePlayerController HousePlayer, CarPlayer, DoctorPlayer;
+
+    public GameObject Ending;
     public void StartTansitionToCar()
     {
         Cursor.visible = false;
@@ -106,21 +108,22 @@ public class Scene1Transition : MonoBehaviour
         });
 
         houseCam.transform.DOMove(PlayerPosBeforeTransition, 1f).OnComplete(() => {
-            houseCam.GetComponent<Animator>().enabled = true;
-            houseCam.GetComponent<WalkAnim>().enabled = true;
-            HousePlayer.enabled = true;
+            //houseCam.GetComponent<Animator>().enabled = true;
+            //houseCam.GetComponent<WalkAnim>().enabled = true;
+            //HousePlayer.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
-            crosshair.instance.gameObject.SetActive(true);
+            //crosshair.instance.gameObject.SetActive(true);
+            Ending.SetActive(true);
         });
 
     }
 
     public void StartTansitionToDoc()
     {
+        Debug.Log("I am to Doc");
         Camera houseCam2 = HousePlayer.transform.GetChild(0).GetComponent<Camera>();
         Cursor.visible = false;
-
         Cursor.lockState = CursorLockMode.Locked;
         houseCam2.transform.DORotate(NewsCamPos.rotation.eulerAngles, 1f).OnComplete(() => {
             crosshair.instance.gameObject.SetActive(true);
@@ -136,6 +139,11 @@ public class Scene1Transition : MonoBehaviour
             DoctorPlayer.GetComponentInChildren<AudioListener>().enabled = true;
             DoctorPlayer.transform.parent.GetComponent<Animation>().Play();
         });
+    }
+
+    public void SIO()
+    {
+        Debug.Log("I am sad");
     }
 
 

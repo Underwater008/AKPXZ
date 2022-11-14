@@ -40,7 +40,9 @@ public class SimplePlayerController : MonoBehaviour
 
         //Zeric
         if (WalkAnim.instance != null)
+        {
             WalkAnim.instance.ChangeAnimState(curSpeedX != 0);
+        }
 
         if (!characterController.isGrounded)
         {

@@ -68,12 +68,14 @@ public class PhoneCall : MonoBehaviour
         this.GetComponent<Outline>().MyText = mytypewriter.gameObject;
         this.GetComponent<AudioSource>().clip = MaddySpeaking;
         this.GetComponent<AudioSource>().Play();
+        int temp = LayerMask.NameToLayer("Highlighted");
+        SlideDoor.layer = temp;
         this.GetComponent<Outline>().MyText.GetComponent<Typewriter>().StopAllCoroutines();
     }
 
     IEnumerator timerStart()
     {
-        yield return new WaitForSeconds(35);
+        yield return new WaitForSeconds(15);
         PhoneStart();
     }
 

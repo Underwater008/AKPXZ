@@ -14,5 +14,16 @@ public class WalkAnim : MonoBehaviour
     public void ChangeAnimState(bool Iswalking)
     {
         this.GetComponent<Animator>().SetBool("Walking", Iswalking);
+        if (Iswalking)
+        {
+            if(!this.GetComponent<AudioSource>().isPlaying)
+            this.GetComponent<AudioSource>().Play();
+        }
+        else
+        {
+            if (this.GetComponent<AudioSource>().isPlaying)
+                this.GetComponent<AudioSource>().Stop();
+        }
+
     }
 }
