@@ -30,7 +30,7 @@ public class crosshair : MonoBehaviour
         mask = LayerMask.GetMask("Highlighted");
         OriginalColor = this.GetComponent<RawImage>().color;
         IHit = false;
-        CrosshairLenth = 2f;
+        CrosshairLenth = 4f;
 
     }
     private void FixedUpdate()

@@ -38,6 +38,8 @@ public class PhoneCall : MonoBehaviour
         this.GetComponent<AudioSource>().Play();
         this.StopAllCoroutines();
         this.GetComponent<Outline>().HasButton = false;
+               mytypewriter.Typed = true;
+        mytypewriter.text = "";
     }
 
 
