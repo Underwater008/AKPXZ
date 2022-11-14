@@ -26,7 +26,7 @@ public class PhoneCall : MonoBehaviour
             "[Pick up]";
         //this.GetComponent<Outline>().HasButton = true;
         mytypewriter.StartTypingLoop();
-        StartCoroutine(RingTimer(10));
+        StartCoroutine(RingTimer(20));
         this.GetComponent<AudioSource>().Play();
         
     }

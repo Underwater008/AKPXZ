@@ -108,9 +108,10 @@ public class Scene1Transition : MonoBehaviour
         });
 
         houseCam.transform.DOMove(PlayerPosBeforeTransition, 1f).OnComplete(() => {
-            //houseCam.GetComponent<Animator>().enabled = true;
-            //houseCam.GetComponent<WalkAnim>().enabled = true;
-            //HousePlayer.enabled = true;
+            houseCam.GetComponent<Animator>().enabled = false;
+            houseCam.GetComponent<WalkAnim>().enabled = false;
+            HousePlayer.IsInDoc = true;
+            HousePlayer.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             //crosshair.instance.gameObject.SetActive(true);
