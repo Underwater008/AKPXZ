@@ -87,6 +87,7 @@ public class Scene1Transition : MonoBehaviour
         houseCam.transform.DORotate(targetCam.rotation.eulerAngles, 1f).OnComplete(() => {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            crosshair.instance.CrosshairLenth = 6f;
         });
 
         houseCam.transform.DOMove(targetCam.position, 1f).OnComplete(() => {

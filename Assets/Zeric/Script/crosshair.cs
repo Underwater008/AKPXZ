@@ -22,6 +22,7 @@ public class crosshair : MonoBehaviour
     public static bool HaveGlasses;
 
     public static crosshair instance;
+    public float CrosshairLenth;
     private void Start()
     {
         instance = this;
@@ -29,6 +30,7 @@ public class crosshair : MonoBehaviour
         mask = LayerMask.GetMask("Highlighted");
         OriginalColor = this.GetComponent<RawImage>().color;
         IHit = false;
+        CrosshairLenth = 2f;
 
     }
     private void FixedUpdate()
@@ -37,7 +39,7 @@ public class crosshair : MonoBehaviour
         bool BeforeRay = IHit;
         // Debug.DrawRay(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward) * 1.5f, Color.yellow);
         RaycastHit hit;
-        if (Physics.Raycast(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward), out hit, 3f, mask))
+        if (Physics.Raycast(CurrentCamera.position, CurrentCamera.TransformDirection(Vector3.forward), out hit, CrosshairLenth, mask))
         {
             IHit = true;
             currentHighlighted = hit.collider.gameObject;
